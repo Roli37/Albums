@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\AlbumController::class, "index"])->name("home");
+Route::get('/admin/album', [\App\Http\Controllers\AlbumAdminController::class, "index"])->name("admin-admin.index");
+Route::get('/admin/album/create', [\App\Http\Controllers\AlbumAdminController::class, "create"])->name("admin-admin.create");
+Route::post('/admin/album', [\App\Http\Controllers\AlbumAdminController::class, "store"])->name("admin-admin.store");
+Route::get('/login', [\App\Http\Controllers\AuthController::class, "login"])->name("auth.login");
+Route::post('/authenticate', [\App\Http\Controllers\AuthController::class, "authenticate"])->name("auth.authenticate");
+Route::get('/register', [\App\Http\Controllers\RegisterController::class, "register"])->name("register.register");
+Route::post('/register', [\App\Http\Controllers\RegisterController::class, "store"])->name("register.store");
