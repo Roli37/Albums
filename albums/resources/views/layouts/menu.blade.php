@@ -10,7 +10,14 @@
                     <a class="nav-link" href="{{route('home')}}">Albums</a>
                 </li>
             </ul>
+            @if(session()->has('user'))
+                <form method="post" action="{{route('auth.logout')}}">
+                    @csrf
+                    <button class="btn btn-outline-dark me-2">Kijelentkezés</button>
+                </form>
+            @else
             <a href="{{route('auth.login')}}"><button class="btn btn-outline-dark me-2">Bejelentkezés</button></a>
+            @endif
             <a href="{{route('register.register')}}"><button class="btn btn-dark me-2">Regisztráció</button></a>
         </div>
     </div>

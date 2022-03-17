@@ -10,4 +10,8 @@ class Album extends Model
     protected $table = "albums";
     protected $fillable = ["title", "released", "genre", "tcc", "sales", "cover"];
     public $timestamps = false;
+    public function Artist()
+    {
+        return $this->belongsTo(Album::class);
+    }
 }
