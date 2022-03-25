@@ -23,3 +23,9 @@ Route::post('/artist', [\App\Http\Controllers\ArtistController::class, 'store'])
 Route::get('/artist/{artist}', [\App\Http\Controllers\ArtistController::class, 'show'])->name('artist.show');
 Route::put('/artist/{artist}', [\App\Http\Controllers\ArtistController::class, 'update'])->name('artist.update');
 Route::delete('/artist/{artist}', [\App\Http\Controllers\ArtistController::class, 'destroy'])->name('artist.destroy');
+
+Route::get('/track', [\App\Http\Controllers\TrackController::class, 'index'])->name('track.index');
+Route::post('/track', [\App\Http\Controllers\TrackController::class, 'store'])->name('track.store');
+Route::get('/track/{track}', [\App\Http\Controllers\TrackController::class, 'show'])->name('track.show');
+Route::put('/track/{track}', [\App\Http\Controllers\TrackController::class, 'update'])->name('track.update');
+Route::delete('/track/{track}', [\App\Http\Controllers\TrackController::class, 'destroy'])->name('track.destroy');

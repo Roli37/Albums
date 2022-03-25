@@ -12,6 +12,10 @@ class Album extends Model
     public $timestamps = false;
     public function Artist()
     {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Artist::class);
+    }
+    public function Tracks()
+    {
+        return $this->hasMany(Track::class, 'album_id');
     }
 }

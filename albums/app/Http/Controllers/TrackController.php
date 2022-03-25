@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artist;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
-class ArtistController extends Controller
+class TrackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        return Artist::all();
+        return Track::all();
     }
 
     /**
@@ -27,7 +27,7 @@ class ArtistController extends Controller
     {
         //validate
         $data = $request->all();
-        Artist::create($data);
+        Track::create($data);
     }
 
     /**
@@ -38,8 +38,8 @@ class ArtistController extends Controller
      */
     public function show($id)
     {
-        $artist = Artist::findorfail($id);
-        return $artist;
+        $track = Track::findorfail($id);
+        return $track;
     }
 
     /**
@@ -53,8 +53,8 @@ class ArtistController extends Controller
     {
         //validate
         $data = $request->all();
-        $artist = Artist::findorfail($id);
-        $artist->update($data);
+        $track = Track::findorfail($id);
+        $track->update($data);
     }
 
     /**
@@ -65,7 +65,7 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
-        $artist =  Artist::findorfail($id);
-        $artist->delete();
+        $track = Track::findorfail($id);
+        $track->delete();
     }
 }
